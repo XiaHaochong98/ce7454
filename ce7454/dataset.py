@@ -72,7 +72,7 @@ class PSGClsDataset(Dataset):
                 buff = io.BytesIO(filebytes)
                 image = Image.open(buff).convert('RGB')
                 data=self.transform_image(image)
-                # sample['data'] = self.transform_image(image)
+                sample['data'] = data
         except Exception as e:
             logging.error('Error, cannot read [{}]'.format(path))
             raise e
@@ -82,4 +82,4 @@ class PSGClsDataset(Dataset):
         soft_label[sample['relations']] = 1
         sample['soft_label'] = soft_label
         del sample['relations']
-        return data,soft_label
+        return sample
