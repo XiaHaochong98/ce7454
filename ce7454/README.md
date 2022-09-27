@@ -31,7 +31,7 @@ Notice that there might not be exactly 4500 training images (so are val/test ima
 Then, we need to setup the environment. We use `conda` to manage our dependencies. The code is heavily dependent on PyTorch.
 
 ```bash
-conda install python=3.7 pytorch=1.7.0 torchvision=0.8.0 torchaudio==0.7.0 cudatoolkit=10.1
+pip install python==3.7 pytorch==1.7.0 torchvision==0.8.0 torchaudio==0.7.0 cudatoolkit==10.1
 pip install tqdm
 ```
 
