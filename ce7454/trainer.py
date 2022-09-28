@@ -48,9 +48,12 @@ class BaseTrainer:
 
         for train_step in tqdm(range(1, len(train_dataiter) + 1)):
             # for train_step in tqdm(range(1, 5)):
-            batch = next(train_dataiter)
-            data = batch['data'].cuda()
-            target = batch['soft_label'].cuda()
+            # batch = next(train_dataiter)
+            # data = batch['data'].cuda()
+            # target = batch['soft_label'].cuda()
+            batch_data,batch_target = next(train_dataiter)
+            data = batch_data.cuda()
+            target = batch_target.cuda()
             # forward
             logits = self.net(data)
             loss = F.binary_cross_entropy_with_logits(logits,
