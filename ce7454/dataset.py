@@ -82,7 +82,7 @@ class PSGClsDataset(Dataset):
         soft_label = torch.Tensor(self.num_classes)
         soft_label.fill_(0)
         soft_label[sample['relations']] = 1
-        sample['soft_label'] = soft_label
+        # sample['soft_label'] = soft_label
         # del sample['relations']
         # return sample
         del sample
