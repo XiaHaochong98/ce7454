@@ -47,7 +47,8 @@ class PSGClsDataset(Dataset):
         stage,
         root='./data/coco/',
         num_classes=56,
-        preprocess=True
+        preprocess=True,
+        transform=None
     ):
         super(PSGClsDataset, self).__init__()
         with open('./data/psg/psg_cls_basic.json') as f:
@@ -59,6 +60,8 @@ class PSGClsDataset(Dataset):
         self.root = root
         if preprocess:
             self.transform_image = get_transforms(stage)
+        elif transform:
+            self.transform_image = transform
         else:
             self.transform_image = lambda x:x
         self.num_classes = num_classes
